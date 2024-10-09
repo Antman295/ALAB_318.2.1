@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
       name: `Anthony's Awesome App!`,
       content: 'This is my app created in VS',
       lorem: `Do you want to see who is the worst team in the NFL?`,
-      img: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/car.png',
+      img: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/ne.png',
     };
   
     res.render('template', options);

@@ -3,7 +3,11 @@ h1{
     color: red;
 }
 
-*{
+body{
     text-align: center;
-    align-items: center;
+    background-color:bisque;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
 }

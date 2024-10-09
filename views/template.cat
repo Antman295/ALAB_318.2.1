@@ -3,13 +3,13 @@
   <head>
     <title>#title#</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
 
   <body>
     <div id="app">
       <h1>#title#</h1>
-      <div>#content#</div>
+      <h2>#content#</h2>
       <p>#lorem#</p>
       <img src='#img#' />
     </div>
