@@ -1,10 +1,33 @@
 // Importing express
 import express from 'express';
-import userRoutes from ''
+import userRoutes from './routes/userRoutes.mjs';
+import fs from 'fs';
+
 
 // Initializing epxress into a variable
 const app = express();
 const PORT = 3000;
+
+//Server static files to be used by template
+app.use(express.static('./styles'));
+
+//Creating template engine
+app.engine('cat', (filePath, options, callback) => {
+  fs.readFile(filePath, (err, content) => {
+    //Error handling
+    if (err) return callback(err);
+
+    //Takes template, turns to string, puts dynamic content in spedified areas, returns value
+    const rendered = content
+      .toString()
+      .replaceAll('#title#', `${options.name}`)
+      .replace('#content#', `${options.content}`)
+      .replace('#lorem#', options.lorem)
+      .replace('#img#', `${options.img}`);
+
+    return callback(null, rendered);
+  });
+});
 
 app.set('views', './views');
 app.set('view engine', 'cat');
