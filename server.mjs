@@ -47,10 +47,10 @@ const logReq = function (req, res, next) {
 // Routes
 app.get('/', (req, res) => {
     let options = {
-      name: 'My App',
-      content: 'Holy Cow this is magic',
-      lorem: `lorem ipsum something, another thing i wanted to get a lot of text but its not working, Toooo bad`,
-      img: 'https://m.media-amazon.com/images/I/619HhG5MELL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+      name: `Anthony's Awesome App!`,
+      content: 'This is my app created in VS',
+      lorem: `Do you want to see who is the worst team in the NFL?`,
+      img: 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/car.png',
     };
   
     res.render('template', options);
