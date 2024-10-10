@@ -2,11 +2,17 @@
 import express from 'express';
 import userRoutes from './routes/userRoutes.mjs';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 // Initializing epxress into a variable
 const app = express();
 const PORT = 3000;
+
+// Getting ES moudles
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 //Server static files to be used by template
 app.use(express.static('./styles'));
@@ -71,7 +77,21 @@ app.get('/', (req, res) => {
   app.get('*', (req, res) => {
     res.send('404 page not found');
   });
+
+  app.get('/button-action', (req, res) => {
+    res.send('Button clicked!');
+  });
   
+  app.get('/download/:filename', (req, res) => {
+    const filePath = path.join(__dirname, 'uploads', req.params.filename);
+    res.download(filePath, req.params.filename, (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error downloading the file');
+        }
+    });
+  });
+
   app.use('/user', userRoutes);
   
   //App.listen should ALWAYS be the last thing in your server

@@ -12,6 +12,18 @@
       <h2>#content#</h2>
       <p>#lorem#</p>
       <img src='#img#' />
+      <button id="button">Click Me</button>
     </div>
+
+    <script>
+         // Add event listener to the button
+      document.getElementById('button').addEventListener('click', () => {
+        // Send a GET request to your server when the button is clicked
+        fetch('/button-action')
+          .then(response => response.text())
+          .then(data => alert(data)) // Display the server's response
+          .catch(err => console.error('Error:', err));
+      });
+    </script>
   </body>
 </html>
